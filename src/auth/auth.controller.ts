@@ -11,7 +11,7 @@ export class AuthController {
   }
 
   @Post('signup')
-  signUp() {
-    return 'i am signed in';
+  signup() {
+    return 'i am signed up';
   }
 }
