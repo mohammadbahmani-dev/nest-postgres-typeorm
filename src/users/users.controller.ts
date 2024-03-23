@@ -15,17 +15,17 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  //   @Get()
-  //   getUsers() {
-  //     return this.userService.getUsers();
-  //   }
+  @Get('/users')
+  getUsers() {
+    return this.userService.getUsers();
+  }
 
   @Get('id/:id')
   findUsersById(@Param('id', ParseIntPipe) id: number) {
     return this.userService.findUsersById(id);
   }
 
-  @Post('create')
+  @Post('/create')
   @UsePipes(ValidationPipe)
   createUsers(@Body() createUserDto: CreateUserDto) {
     return this.userService.createUser(createUserDto);
