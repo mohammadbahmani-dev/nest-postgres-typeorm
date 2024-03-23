@@ -9,10 +9,8 @@ export class AuthService {
   async validateUser(username: string, password: string) {
     const userDB = await this.userService.findUserByUsername(username);
     if (userDB && userDB.password === password) {
-      console.log('success');
       return userDB;
     }
-    console.log('login unsuccessful');
     return null;
   }
 }
