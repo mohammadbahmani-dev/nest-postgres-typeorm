@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import entities from './typeorm';
+import { PassportModule } from '@nestjs/passport';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -25,6 +26,9 @@ import entities from './typeorm';
     }),
     AuthModule,
     UsersModule,
+    PassportModule.register({
+      session: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
